@@ -18,10 +18,10 @@ class App extends React.Component {
           <Router>
           <Switch>
     <Route path = '/CS185-react'  exact component = {home} />
-    <Route path = '/images' component = {images} className = 'images' />
-    <Route path = '/videos' component = {videos} />
-    <Route path = '/projects' component = {projects} />
-    <Route path = 'images/:id' />
+    <Route path = '/CS185-react/images' component = {images} className = 'images' />
+    <Route path = '/CS185-react/videos' component = {videos} />
+    <Route path = '/CS185-react/projects' component = {projects} />
+    <Route path = '/CS185-react/images/:id' />
 
 </Switch>
 </Router>
