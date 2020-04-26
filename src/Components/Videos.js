@@ -11,10 +11,10 @@ export default class Videos extends Component {
                 <nav id="navbar">
 		<div class="container">
 			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="images">Images</a></li>
+				<li><a href="/CS185-react/">Home</a></li>
+				<li><a href="/CS185-react/images">Images</a></li>
 				<li><a class="current" href="videos">Videos</a></li>
-				<li><a href="projects">Projects</a></li>
+				<li><a href="/CS185-react/projects">Projects</a></li>
 			</ul>
 		</div>
 

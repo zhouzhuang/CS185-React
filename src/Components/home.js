@@ -16,9 +16,9 @@ export default class home extends Component {
 		<div class="container">
 			<ul>
 				<li><a class="current" href="/">Home</a></li>
-				<li><a href="images">Images</a></li>
-				<li><a href="videos">Videos</a></li>
-				<li><a href="projects">Projects</a></li>
+				<li><a href="/CS185-react/images">Images</a></li>
+				<li><a href="/CS185-react/videos">Videos</a></li>
+				<li><a href="/CS185-react/projects">Projects</a></li>
 		
 
 			</ul>
