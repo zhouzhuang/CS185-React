@@ -1,4 +1,5 @@
 {
+  "homepage": "http://zhouzhuang.github.io/CS185-react",
   "name": "recwebsite",
   "version": "0.1.0",
   "private": true,
@@ -18,18 +19,15 @@
     "react-scripts": "3.4.1",
     "react-scroll-up-button": "^1.6.4",
     "simple-react-lightbox": "^2.7.3-2",
-    "yarn": "^1.22.4",
-    "homepage": "http://zhouzhuang.github.io/CS185-react"
-
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
-    
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
