@@ -17,7 +17,7 @@ class App extends React.Component {
     <div class = "App">
           <Router>
           <Switch>
-    <Route path = '/'  exact component = {home} />
+    <Route path = '/CS185-react'  exact component = {home} />
     <Route path = '/images' component = {images} className = 'images' />
     <Route path = '/videos' component = {videos} />
     <Route path = '/projects' component = {projects} />
