@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./style.css";
+import "../style.css";
 import ScrollUpButton from "react-scroll-up-button"; 
 
 export default class Projects extends Component {
@@ -22,13 +22,13 @@ export default class Projects extends Component {
         <h1> Projects </h1>
 	    <div id = "pro1">	
 			<a href="https://cs56-w20-project-zhouzhuang.herokuapp.com">
-			<img src = {require("./projects/eqSearch.jfif") } alt ='earthquake search' /></a>
+			<img src = {require("../projects/eqSearch.jfif") } alt ='earthquake search' /></a>
 		</div>
         <span> <b>Earthquake Search:</b> <em>Earthquakes in the last 30 days</em></span>
 
 		<div id = "pro2">
 		<a href="https://cs56-s20-zhouzhuang-lab04.herokuapp.com">
-		<img src = {require('./projects/RatCal.jfif')} alt="Earthquake Search" />	</a>
+		<img src = {require('../projects/RatCal.jfif')} alt="Earthquake Search" />	</a>
 	
 			
 		</div>

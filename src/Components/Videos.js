@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./style.css";
+import "../style.css";
 import ScrollUpButton from "react-scroll-up-button"; 
 
 

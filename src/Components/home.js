@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./style.css";
+import "../style.css";
 import ScrollUpButton from "react-scroll-up-button"; 
 
 export default class home extends Component {
@@ -38,7 +38,7 @@ export default class home extends Component {
 		<div class="links">
 			<a href="https://google.com">Google</a> &nbsp; &nbsp;
 			<a href="https://github.com/zhouzhuang?tab=repositories">My Github Repo Page</a> &nbsp; &nbsp;
-			<a href="https://github.com/zhouzhuang/CS185-Assignment1">Link to my master branch</a> 
+			<a href="https://github.com/zhouzhuang/CS185-React">Link to my master branch</a> 
 		</div>
 
 	<section id="main">
@@ -60,8 +60,8 @@ export default class home extends Component {
 			<h2>About me</h2>
 			
 			<div id="image-index">
-			<div><a href="./images/pistachios.jpg">
-				<img src ={require('./images/pistachios.jpg')} alt = "pistachois" /></a>
+			<div><a href="../images/pistachios.jpg">
+				<img src ={require('../images/pistachios.jpg')} alt = "pistachois" /></a>
 				</div>
 		    </div>
 
