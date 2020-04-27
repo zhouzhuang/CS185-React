@@ -15,12 +15,12 @@ class App extends React.Component {
     <SimpleReactLightbox>
 
     <div class = "App">
-          <Router>
-          <Switch>
+    <Router >
+    <Switch>
     <Route path = '/CS185-react'  exact component = {home} />
-    <Route path = '/CS185-react/images' component = {images} className = 'images' />
-    <Route path = '/CS185-react/videos' component = {videos} />
-    <Route path = '/CS185-react/projects' component = {projects} />
+    <Route path = '/CS185-react/images' exact component = {images} className = 'images' />
+    <Route path = '/CS185-react/videos' exact component = {videos} />
+    <Route path = '/CS185-react/projects' exact component = {projects} />
     <Route path = '/CS185-react/images/:id' />
 
 </Switch>
