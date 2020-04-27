@@ -23,7 +23,7 @@ export default class Images extends Component {
 		<div class="container">
 			<ul>
 				<li><a href="/CS185-react/">Home</a></li>
-				<li><a class="current" href="/images">Images</a></li>
+				<li><a class="current" href="/CS185-react/images">Images</a></li>
 				<li><a href="/CS185-react/videos">Videos</a></li>
 				<li><a href="/CS185-react/projects">Projects</a></li>
 			</ul>
