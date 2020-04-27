@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "../style.css";
 import ScrollUpButton from "react-scroll-up-button"; 
+import {NavLink} from  'react-router-dom';
 
 
 export default class Videos extends Component {
@@ -11,10 +12,10 @@ export default class Videos extends Component {
                 <nav id="navbar">
 		<div class="container">
 			<ul>
-				<li><a href="/CS185-react">Home</a></li>
-				<li><a href="/CS185-react/images">Images</a></li>
-				<li><a class="current" href="/CS185-react/videos">Videos</a></li>
-				<li><a href="/CS185-react/projects">Projects</a></li>
+            <li><NavLink to="/CS185-react">Home</NavLink></li>
+			<li><NavLink to="/CS185-react/images">Images</NavLink></li>
+			<li><NavLink to="/CS185-react/videos"  className='current'>Videos</NavLink></li>
+			<li><NavLink to="/CS185-react/Projects">Projects</NavLink></li>
 			</ul>
 		</div>
 
