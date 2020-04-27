@@ -12,7 +12,7 @@ export default class Projects extends Component {
 				<li><a href="/CS185-react/">Home</a></li>
 				<li><a href="/CS185-react/images">Images</a></li>
 				<li><a href="/CS185-react/videos">Videos</a></li>
-				<li><a class="current" href="/Projects">Projects</a></li>
+				<li><a class="current" href="/CS185-react/Projects">Projects</a></li>
 			</ul>
 		</div>
 
