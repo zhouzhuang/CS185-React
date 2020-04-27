@@ -60,8 +60,8 @@ export default class home extends Component {
 			<h2>About me</h2>
 			
 			<div id="image-index">
-			<div><a href="../images/pistachios.jpg">
-				<img src ={require('../images/pistachios.jpg')} alt = "pistachois" /></a>
+			<div>
+				<img src ={require('../images/pistachios.jpg')} alt = "pistachois" />
 				</div>
 		    </div>
 
