@@ -33,10 +33,10 @@ export default class Images extends Component {
     <SRLWrapper>
 
 	<ScrollUpButton />
-     <h1 id = "h11"> Images </h1>
 	 
-     <p> Nitendo Switch </p>
+  
 		<h2> Animal Crossing Gallery</h2>
+		<p> Nintendo Switch </p>
 	<section id="index-gallery" class = "wrapper-gallery" >
 
         <SRLWrapper>
