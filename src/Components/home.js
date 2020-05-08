@@ -20,6 +20,8 @@ export default class home extends Component {
 			<li><NavLink to="/CS185-react/images">Images</NavLink></li>
 			<li><NavLink to="/CS185-react/videos">Videos</NavLink></li>
 			<li><NavLink to="/CS185-react/Projects">Projects</NavLink></li>
+			<li><NavLink to="/CS185-react/guestBook">GuestBook</NavLink></li>
+
 		
 
 			</ul>
@@ -43,7 +45,6 @@ export default class home extends Component {
 		</div>
 
 	<section id="main">
-		<h1>Welcome</h1>
 	
 
 
@@ -55,10 +56,10 @@ export default class home extends Component {
 <br/>
 <br/>
 
-	
+
 
 	<div>
-			<h2>About me</h2>
+		<center><h2>About me</h2></center>	
 			
 			<div id="image-index">
 			<div>
