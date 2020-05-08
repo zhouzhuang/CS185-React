@@ -24,6 +24,13 @@
   color: white;
 }
 
+.center-col {
+  width:600px; 
+  overflow-y:scroll; 
+  position:relative;
+  height: 600px;
+}
+
 .App-link {
   color: #61dafb;
 }

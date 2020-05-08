@@ -1,20 +1,28 @@
 import React from 'react';
 import config from '../../config';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
+import BaseSelect from 'react-select';
+import FixRequiredSelect from "./FixRequiredSelect";
 
 const firebase = require('firebase')
-const data = ['hi','hello','how are you']
+
+const options = [
+    { value: 'Yes', label: 'Yes' , name:'ifPost'},
+    { value: 'No', label: 'No' , name:'ifPost'},
+  ]
+
+  const Select = props => (
+  <FixRequiredSelect
+    {...props}
+    SelectComponent={BaseSelect}
+    options={props.options || options}
+  />
+);
 class ProjectSummary extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            post:'yes',
-            data: {},
-        }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
       
     }
 
@@ -40,22 +48,17 @@ class ProjectSummary extends React.Component {
         if (!Error) {
             
             Json["date"] = new Date().toLocaleString();
-
             firebase.database().ref('SayHi').push().set(Json);
             alert("Your message was sent!")
         }
+        
         else {
             alert("Failed to send greeting. You are missing required fields")
         }
 
     }
 
-    handlePostChange = (event) => {
-        this.setState({
-            post: event.target.value
-        })
-        event.preventDefault();
-    }
+  
     componentDidMount() {
         
         firebase.initializeApp(config)
@@ -76,15 +79,9 @@ class ProjectSummary extends React.Component {
             <div className='card-conteng grey-text text-darken-3'>
                 <span className='card-title'>Talk to me, and optionally let everyone know you visited! (* area is required)</span>
         
-            
+             
                 <form onSubmit={this.handleSubmit}>  
-                <div>
-                    <label>Post</label>
-                    <select value={this.state.post} onChange={this.handlePostChange}>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+          
                 <div>
                     * What is your name?
                     <label for="name"></label>
@@ -104,23 +101,13 @@ class ProjectSummary extends React.Component {
                     <input type="text" name="message" minlength="16" maxLength="499" required/>
                 </div>   
                 <div>
-                 
                     <div >
                     * Would you like your name and message to be viewable by the other guests of this site? 
                     <br/>
 
-                    <RadioGroup onChange={ this.onChange } horizontal required>
-                    <RadioButton value="yes">
-                       Yes
-                    </RadioButton>
-                    <RadioButton value="no">
-                        No
-                    </RadioButton>
-                
-                    </RadioGroup>
-                            <input  type="radio" name="yes_no" id="r_1_1"  value="yes" /><label class="gb-radio" for="r_1_1">Yes</label>
-
-                            <input  type="radio" name="yes_no" id="r_1_2" value="no" /><label class="gb-radio" for="r_1_2">No</label>
+                    <Select options={options} isSearchable required  name='ifPost'/>
+                     
+                      
                     </div>
                 </div> 
                 <div>
@@ -136,11 +123,7 @@ class ProjectSummary extends React.Component {
             </div>
 
 
-            {data.map((d, index) => (
-                        <div>
-                            {data[0]}
-                        </div> 
-                    ))}
+ 
         </div>
     )
     }
