@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Notifications from './Notifications';
 import ProjectList from '../projects/ProjectList';
-import CreateProject from '../projects/CreateProject';
 
 class Dashboard extends Component {
 
