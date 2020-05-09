@@ -14,6 +14,8 @@ export default class Projects extends Component {
 			<li><NavLink to="/CS185-react/images">Images</NavLink></li>
 			<li><NavLink to="/CS185-react/videos">Videos</NavLink></li>
 			<li><NavLink to="/CS185-react/Projects" className='current'>Projects</NavLink></li>
+			<li><NavLink to="/CS185-react/guestBook">GuestBook</NavLink></li>
+
 			</ul>
 		</div>
 

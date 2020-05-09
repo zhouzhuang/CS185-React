@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SimpleReactLightbox from "simple-react-lightbox";
 import config from './config.js';
 
-import Navbar from './Components/layout/Navbar';
 import Dashboard from './Components/dashboard/Dashboard';
 import ProjectDetails from './Components/projects/ProjectDetails';
 class App extends React.Component {
@@ -20,7 +19,6 @@ class App extends React.Component {
 
     <div class = "App">
     <Router >
-      <Navbar />
     <Switch>
 
     <Route path = '/CS185-react'  exact component = {home} />
