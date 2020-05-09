@@ -61,8 +61,9 @@ class ProjectSummary extends React.Component {
   
     componentDidMount() {
         
-        firebase.initializeApp(config)
-  
+      if (!firebase.apps.length) {
+        firebase.initializeApp(config);
+      }
         let ref = firebase.database().ref('SayHi')
     	ref.on('value', snapshot => {
 		const data = snapshot.val()
@@ -75,7 +76,9 @@ class ProjectSummary extends React.Component {
     render(){
     return (
         
+   
         <div className='card z-depth-0 project-summary'>
+            
             <div className='card-conteng grey-text text-darken-3'>
                 <span className='card-title'>Talk to me, and optionally let everyone know you visited! (* area is required)</span>
         
