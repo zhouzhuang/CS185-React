@@ -17,14 +17,14 @@ export default class MovieGallery extends Component {
 
     componentDidMount(){
         var data = [];
-        let one   = 'http://www.omdbapi.com/?i=tt0848228&apikey=41ed690d'
-        let two   = 'http://www.omdbapi.com/?i=tt0214341&apikey=41ed690d'
-        let three = 'http://www.omdbapi.com/?i=tt0898266&apikey=41ed690d'
-        let four  = 'http://www.omdbapi.com/?i=tt4520988&apikey=41ed690d'
-        let five  = 'http://www.omdbapi.com/?i=tt7605074&apikey=41ed690d'
-        let six   = 'http://www.omdbapi.com/?i=tt0374463&apikey=41ed690d'
-        let seven = 'http://www.omdbapi.com/?i=tt1663662&apikey=41ed690d'
-        let eight = 'http://www.omdbapi.com/?i=tt1675434&apikey=41ed690d'
+        let one   = 'https://www.omdbapi.com/?i=tt0848228&apikey=41ed690d'
+        let two   = 'https://www.omdbapi.com/?i=tt0214341&apikey=41ed690d'
+        let three = 'https://www.omdbapi.com/?i=tt0898266&apikey=41ed690d'
+        let four  = 'https://www.omdbapi.com/?i=tt4520988&apikey=41ed690d'
+        let five  = 'https://www.omdbapi.com/?i=tt7605074&apikey=41ed690d'
+        let six   = 'https://www.omdbapi.com/?i=tt0374463&apikey=41ed690d'
+        let seven = 'https://www.omdbapi.com/?i=tt1663662&apikey=41ed690d'
+        let eight = 'https://www.omdbapi.com/?i=tt1675434&apikey=41ed690d'
 
         const requestOne = axios.get(one);
         const requestTwo = axios.get(two);
