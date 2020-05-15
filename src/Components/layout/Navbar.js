@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
 import {NavLink} from  'react-router-dom';
 import '../../style.css';
@@ -16,7 +15,10 @@ const Navbar = () => {
 			<li><NavLink to="/CS185-react/videos">Videos</NavLink></li>
 			<li><NavLink to="/CS185-react/Projects" className='current'>Projects</NavLink></li>
 			<li><NavLink to="/CS185-react/guestBook" >GuestBook</NavLink></li>
-		
+            <li><NavLink to ='/' className ='btn btn-floating pink lighten-1'>M</NavLink></li>
+			<li><NavLink to="/CS185-react/Movies">Movies</NavLink></li>
+
+
 			</ul>
 		</div>
         <ScrollUpButton />
