@@ -4,6 +4,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 import config from '../config';
 import 'react-widgets/dist/css/react-widgets.css';
 import DropdownList from 'react-widgets/lib/DropdownList';
+import Popup from "reactjs-popup";
 
 
 
@@ -20,7 +21,7 @@ export default class MovieGallery extends Component {
             imdbID:'',
             poster: '',
             listOfMovies: [],
-            listName: '',
+            listName: 'All',
             visible: 8,
             loading: false,
             search: '',
@@ -125,7 +126,7 @@ export default class MovieGallery extends Component {
         console.log(ID)
         let ref = firebase.database().ref('Movies/' + imdbID);
         ref.child(ID).remove()
-       
+        window.location.reload()
         console.log('testDeleteButton')
     
     }
@@ -136,7 +137,7 @@ export default class MovieGallery extends Component {
         console.log(this.state.data)
         console.log(this.state.data)
                 return (
-            <SRLWrapper>
+          
             <div >
                 <h1>Movie Collection</h1>
            
@@ -155,21 +156,28 @@ export default class MovieGallery extends Component {
             </div>
 
 
+            {this.state.data.slice(0,this.state.visible).map((d, index)=>
 
-
-                {this.state.data.slice(0,this.state.visible).map((d, index)=>{
-                    return(
-
-                        <div id = 'info'>
-                            <img src = {d.poster}
-                            alt={d.title + " Director: " + d.director  + " IMDB Rating: " + d.imdbRating } >
-                            </img>
-
-                            <button  onClick={()=>{this.deleteMovie(d.imdbID)}}>Delete</button>
-                        </div>
+                <Popup
+                    trigger={
+                        <img src = {d.poster}>
+                             
+                        </img>
+                        }
+            
+                        modal
+                        closeOnDocumentClick
+                  >
+                  
+                      <img src = {d.poster} float="left">
+                        </img>
+                        <div>{"Title: " + d.title + " Director: " + d.director  + " IMDB Rating: " + d.imdbRating }
+                            </div>
+                            <button float="right"  onClick={()=>{this.deleteMovie(d.imdbID)}}>Delete</button>
+                  
                         
-                )
-            })}
+            </Popup>
+            )}
 
             <div class='load-button'>
                 {this.state.visible < this.state.data.length && 
@@ -177,7 +185,7 @@ export default class MovieGallery extends Component {
             }
             </div>
             </div>
-        </SRLWrapper>
+
     );
   }
                         
