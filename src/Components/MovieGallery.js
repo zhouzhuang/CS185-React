@@ -148,8 +148,6 @@ export default class MovieGallery extends Component {
                                         d.listName)
                                 })}
                             />
-         
-                                
             <div>
               <input type='textarea' id='search' name='search' />
               <button onClick={this.searchMovies.bind(this)}>Search</button>
@@ -174,6 +172,15 @@ export default class MovieGallery extends Component {
                         <div>{"Title: " + d.title + " Director: " + d.director  + " IMDB Rating: " + d.imdbRating }
                             </div>
                             <button float="right"  onClick={()=>{this.deleteMovie(d.imdbID)}}>Delete</button>
+                            <div><b><em>Add to list:</em></b>
+                            <DropdownList class='dropdown'
+                                defaultValue={'All'}
+                                data={this.state.listOfMovies.map((d,index) => {
+                                    return (
+                                        d.listName)
+                                })}
+                            />
+                            </div>
                   
                         
             </Popup>
