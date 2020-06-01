@@ -98,7 +98,7 @@ export default class addMovie extends Component {
                 
                 <div className="add-movie" >
                 <form onSubmit={this.handleSubmit}>  
-                    <input type="textarea" id ="imdbID" name="imdbID" minLength ="7" maxLength="9"placeholder="imdb ID"/>
+                    <input type="textarea" id ="imdbID" name="imdbID" minLength ="7" maxLength="15"placeholder="imdb ID"/>
                     <div>
                     <input type="submit" name="Submit" value="Submit"/>
                     </div>
