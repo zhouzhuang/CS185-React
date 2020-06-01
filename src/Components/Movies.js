@@ -38,6 +38,9 @@ export default class Movies extends Component {
 			<li><NavLink to="/CS185-react/Projects" >Projects</NavLink></li>
 			<li><NavLink to="/CS185-react/guestBook">GuestBook</NavLink></li>
       <li><NavLink to="/CS185-react/Movies" className='current'>Movies</NavLink></li>
+      <li><NavLink to="/CS185-react/AddMovie">Add Movie</NavLink></li>
+      <li><NavLink to="/CS185-react/createList">Create List</NavLink></li>
+
 			</ul>
 		</div>
 	</nav>

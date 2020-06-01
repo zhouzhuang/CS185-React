@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import config from '../../config.js'
 import '../../App.css';
+import config from '../../config.js'
 const firebase = require('firebase')
 
 export class Notifications extends Component {
@@ -43,6 +43,7 @@ export class Notifications extends Component {
     }
   
     render() {
+      console.log(this.state.data)
       return (
         <div>
             <h1> </h1> Message Collection
