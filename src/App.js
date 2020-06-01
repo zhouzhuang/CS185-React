@@ -11,6 +11,8 @@ import config from './config.js';
 import Dashboard from './Components/dashboard/Dashboard';
 import ProjectDetails from './Components/projects/ProjectDetails';
 import Movies from './Components/Movies';
+import AddMovie from './Components/addMovie';
+import createList from './Components/createList';
 class App extends React.Component {
 
   render(){
@@ -31,6 +33,8 @@ class App extends React.Component {
     <Route path = '/CS185-react/guestBook' exact component = {Dashboard} />
     <Route path = '/CS185-react/project/:id'  exact component= {ProjectDetails} />
     <Route path = '/CS185-react/Movies'  exact component= {Movies} />
+    <Route path = '/CS185-react/AddMovie' exact component = {AddMovie} />
+    <Route path = '/CS185-react/createList' exact component = {createList} />
     
 </Switch>
 </Router>

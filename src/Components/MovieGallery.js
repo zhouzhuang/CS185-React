@@ -1,102 +1,182 @@
 import React, { Component} from 'react';
 import './Movies.css';
 import { SRLWrapper } from "simple-react-lightbox";
+import config from '../config';
+import 'react-widgets/dist/css/react-widgets.css';
+import DropdownList from 'react-widgets/lib/DropdownList';
 
-const axios = require('axios');
 
+
+const firebase = require('firebase')
 
 export default class MovieGallery extends Component {
     constructor(props){
         super(props);
         this.state = {
-            movieCollection: [],
+            data: [],
+            title: '',
+            director:'',
+            imdbRating: '',
+            imdbID:'',
+            poster: '',
+            listOfMovies: [],
+            listName: '',
+            visible: 8,
+            loading: false,
+            search: '',
+            open: false,
+            selectedPost: null,
         }
-
-        this.componentDidMount = this.componentDidMount.bind(this);
+        this.loadmore = this.loadmore.bind(this);
     }
 
+    onchange = event =>{
+        this.setState({search : event.target.value})
+    }
+
+    
     componentDidMount(){
-        var data = [];
-        let one   = 'https://www.omdbapi.com/?i=tt0848228&apikey=41ed690d'
-        let two   = 'https://www.omdbapi.com/?i=tt0214341&apikey=41ed690d'
-        let three = 'https://www.omdbapi.com/?i=tt0898266&apikey=41ed690d'
-        let four  = 'https://www.omdbapi.com/?i=tt4520988&apikey=41ed690d'
-        let five  = 'https://www.omdbapi.com/?i=tt7605074&apikey=41ed690d'
-        let six   = 'https://www.omdbapi.com/?i=tt0374463&apikey=41ed690d'
-        let seven = 'https://www.omdbapi.com/?i=tt1663662&apikey=41ed690d'
-        let eight = 'https://www.omdbapi.com/?i=tt1675434&apikey=41ed690d'
 
-        const requestOne = axios.get(one);
-        const requestTwo = axios.get(two);
-        const requestThree = axios.get(three);
-        const requestFour = axios.get(four);
-        const requestFive = axios.get(five);
-        const requestSix = axios.get(six);
-        const requestSeven = axios.get(seven);
-        const requestEight = axios.get(eight);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+          }
+ 
+        firebase.database().ref('Movies').on('value', snapshot => {
+            const data = snapshot.val();
+            const update = [];
+            
+            for (let d in data) {
+                update.push({
+                poster: data[d].Poster,
+                title: data[d].Title,
+                director: data[d].Director,
+                imdbRating: data[d].imdbRating,
+                imdbID: data[d].imdbID
+                })
 
-        requestOne.then(res => {
-            const dragonBall = res.data;
-            data.push(dragonBall);
-        })
-        requestTwo.then(res => {
-            const Avengers = res.data;
-            data.push(Avengers);
-        })
-        requestThree.then(res => {
-            const bigBang = res.data;
-            data.push(bigBang);
-        })
-        requestFour.then(res => {
-            const frozen = res.data;
-            data.push(frozen);
-        })
-        requestFive.then(res => {
-            const pacific = res.data;
-            data.push(pacific);
-        })
-        requestSix.then(res => {
-            const intouchable = res.data;
-            data.push(intouchable);
-        })
-        requestSeven.then(res => {
-            const pacifi = res.data;
-            data.push(pacifi);
-        })
-        requestEight.then(res => {
-            const star = res.data;
-            data.push(star);
-        })
-      
-        
-        axios.all([requestOne,requestTwo,requestThree,requestFour,
-                  requestFive,requestSix,requestSeven,requestEight])
-                  .then(res => {
-                    var data = [];
-                    const movies = res.data;
-                    data.push(movies);
-                  })
-                  
-        this.setState({movieCollection: data});
+            }
+            
+            this.setState({data: update},
+            () => {
+                console.log(this.state.data)
+                console.log(this.state.data)})
+ 
+ 
+            })   
+
+            firebase.database().ref('lists').on('value', snapshot => {
+                
+                const data = snapshot.val();
+                const updateList = [];
+                
+                for (let d in data) {
+                    updateList.push({
+                    listName: data[d].name
+                    })
+    
+                }
+                
+                this.setState({
+                    listOfMovies: updateList},
+                () => {
+                    console.log(this.state.listOfMovies)
+                    console.log(this.state.listOfMovies)})
+     
+     
+                })   
+          
 
     }
 
+    searchMovies() {
+        let movChoice = document.getElementById('search').value.toLowerCase();
+
+        let ref = firebase.database().ref('Movies');
+        ref.once('value').then(snapshot => {
+        let data = snapshot.val();
+            let update= [];
+            for (let d in data) {
+        
+            let title = (data[d].Title).toLowerCase();
+            
+            if (title.includes(movChoice)) {
+                update.push({
+                    poster: data[d].Poster,
+                    title: data[d].Title,
+                    director: data[d].Director,
+                    imdbRating: data[d].imdbRating,
+                    imdbID: data[d].imdbID
+                })
+            }
+            }
+            this.setState({data: update});
+        })
+    }
+
+
+    loadmore(){
+        this.setState((res)=>{
+            return {visible: res.visible + 8}
+        })
+    }
+    
+    deleteMovie(ID) {
+        const imdbID = this.state.imdbID
+        console.log(ID)
+        let ref = firebase.database().ref('Movies/' + imdbID);
+        ref.child(ID).remove()
+       
+        console.log('testDeleteButton')
+    
+    }
+
+      
     render(){
-        return (
+        
+        console.log(this.state.data)
+        console.log(this.state.data)
+                return (
             <SRLWrapper>
             <div >
                 <h1>Movie Collection</h1>
-                <p><em>Click <b>Movies</b> tab if empty</em> </p>
-                {this.state.movieCollection.map((d, index)=>{
-                    return(
-                        <img className = "movies" src={d.Poster} 
-                        alt={d.Title + " Director: " + d.Director  + " IMDB Rating: " + d.imdbRating } >
-                        </img>
-        
-                    )})
-                }
+           
+                <DropdownList   class='dropdown'
+                                defaultValue={'All'}
+                                data={this.state.listOfMovies.map((d,index) => {
+                                    return (
+                                        d.listName)
+                                })}
+                            />
+         
+                                
+            <div>
+              <input type='textarea' id='search' name='search' />
+              <button onClick={this.searchMovies.bind(this)}>Search</button>
             </div>
 
+
+
+
+                {this.state.data.slice(0,this.state.visible).map((d, index)=>{
+                    return(
+
+                        <div id = 'info'>
+                            <img src = {d.poster}
+                            alt={d.title + " Director: " + d.director  + " IMDB Rating: " + d.imdbRating } >
+                            </img>
+
+                            <button  onClick={()=>{this.deleteMovie(d.imdbID)}}>Delete</button>
+                        </div>
+                        
+                )
+            })}
+
+            <div class='load-button'>
+                {this.state.visible < this.state.data.length && 
+                <button type='button' onClick={this.loadmore}>Load more</button>
+            }
+            </div>
+            </div>
         </SRLWrapper>
     );
   }
