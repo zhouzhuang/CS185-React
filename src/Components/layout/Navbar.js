@@ -17,6 +17,7 @@ const Navbar = () => {
 			<li><NavLink to="/CS185-react/guestBook" >GuestBook</NavLink></li>
             <li><NavLink to ='/' className ='btn btn-floating pink lighten-1'>M</NavLink></li>
 			<li><NavLink to="/CS185-react/Movies">Movies</NavLink></li>
+			<li><NavLink to="/CS185-react/graph">Graph</NavLink></li>
 
 
 			</ul>

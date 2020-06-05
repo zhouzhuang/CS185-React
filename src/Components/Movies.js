@@ -5,22 +5,6 @@ import {NavLink} from  'react-router-dom';
 import MovieGallery from './MovieGallery';
 import './Movies.css';
 
-const axios = require('axios');
-
-// Make a request for a user with a given ID
-axios.get('https://www.imdb.com/title/tt0482571/')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })    
-  .then(function () {
-    // always executed
-  });
-
   
 export default class Movies extends Component {
 
@@ -40,6 +24,8 @@ export default class Movies extends Component {
       <li><NavLink to="/CS185-react/Movies" className='current'>Movies</NavLink></li>
       <li><NavLink to="/CS185-react/AddMovie">Add Movie</NavLink></li>
       <li><NavLink to="/CS185-react/createList">Create List</NavLink></li>
+      <li><NavLink to="/CS185-react/graph">Graph</NavLink></li>
+
 
 			</ul>
 		</div>
