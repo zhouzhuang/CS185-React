@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import './Movies.css';
-import { SRLWrapper } from "simple-react-lightbox";
 import config from '../config';
 import 'react-widgets/dist/css/react-widgets.css';
 import DropdownList from 'react-widgets/lib/DropdownList';
@@ -158,7 +157,7 @@ export default class MovieGallery extends Component {
 
                 <Popup
                     trigger={
-                        <img src = {d.poster}>
+                        <img src = {d.poster} alt='poster'>
                              
                         </img>
                         }
@@ -167,7 +166,7 @@ export default class MovieGallery extends Component {
                         closeOnDocumentClick
                   >
                   
-                      <img src = {d.poster} float="left">
+                      <img src = {d.poster} float="left" alt='poster'>
                         </img>
                         <div>{"Title: " + d.title + " Director: " + d.director  + " IMDB Rating: " + d.imdbRating }
                             </div>

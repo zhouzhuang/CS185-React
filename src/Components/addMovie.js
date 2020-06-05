@@ -53,6 +53,7 @@ export default class addMovie extends Component {
                     imdbRating: response.data.imdbRating,
                     Director: response.data.Director,
                     Released: response.data.Released,
+                    Actors: response.data.Actors
                     
                 }); 
                  
@@ -88,6 +89,7 @@ export default class addMovie extends Component {
             <li><NavLink to="/CS185-react/Movies">Movies</NavLink></li>
             <li><NavLink to="/CS185-react/AddMovie" className='current'>Add Movie</NavLink></li>
             <li><NavLink to="/CS185-react/createList">Create List</NavLink></li>
+            <li><NavLink to="/CS185-react/graph">Graph</NavLink></li>
 
 
 			</ul>

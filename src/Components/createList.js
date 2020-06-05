@@ -76,6 +76,7 @@ export default class createList extends Component {
             <li><NavLink to="/CS185-react/Movies">Movies</NavLink></li>
             <li><NavLink to="/CS185-react/AddMovie">Add Movie</NavLink></li>
             <li><NavLink to="/CS185-react/createList" className='current'>Create List</NavLink></li>
+            <li><NavLink to="/CS185-react/graph">Graph</NavLink></li>
 
 
 			</ul>
