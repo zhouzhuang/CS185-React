@@ -14,7 +14,6 @@ import Movies from './Components/Movies';
 import AddMovie from './Components/addMovie';
 import createList from './Components/createList';
 import graph from './Components/graph';
-import graphs from './Components/graphs';
 class App extends React.Component {
 
   render(){
